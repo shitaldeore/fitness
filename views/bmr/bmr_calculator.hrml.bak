@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+{{extend 'layout.html'}} 
+<html>
+<head>
+    <title>Calculate your BMR</title>
+</head>
+
+<h2>Calculate your BMR</h2>
+{{=form}}
+{{if response.vars:}}
+	{{=BEAUTIFY(response.vars)}}
+{{pass}}
+</html>

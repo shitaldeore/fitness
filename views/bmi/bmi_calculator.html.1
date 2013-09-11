@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+{{extend 'layout.html'}} 
+<html>
+<head>
+    <title>Calculate your BMI</title>
+</head>
+
+<h2 style= "color: #0a5282;">Calculate your BMI </h2>
+
+{{=form}}
+{{if response.vars:}}
+	{{=BEAUTIFY(response.vars)}}
+
+    <table id="bmi-scale" cellpadding="0" cellspacing="0" border="0">
+    <tbody><tr>
+	  	<style>
+			td.under, td.healthy, td.over, td.obese, td.range { width: 140px; font: bold 14px;
+						   padding: 3px 0px 3px 0px; text-align: center; font-weight: bold;
+						   border-left: 1px solid #000;	border-top: 1px solid #000; border-bottom: 1px solid #000;}
+			td.range {height: 50px; border-top: none; }
+			td.last {border-right: 1px solid #000; }
+        </style>
+      <td>&nbsp;</td>
+      <td class="under">Under</td>
+      <td class="healthy">Healthy</td>
+      <td class="over">Over</td>
+      <td class="obese last">Obese</td>
+    </tr>
+    <tr>
+        <style> td.bmi { height: 50px; width: 120px; text-align: left;}
+				td.bmi h2 { font: bold 24px; display: inline; color: #0a5282;}
+        </style>
+      <td class="bmi"><h2>B.M.I.</h2><br>Body Mass Index</td>
+      <td class="range">less - 18.5</td>
+      <td class="range">18.5 - 25.0</td>
+      <td class="range">25.0 - 30.0</td>
+      <td class="range last">30.0 - more</td>
+    </tr>
+    <tr>
+      <style type="text/css"> td.line {border-left: 1px solid #000; } </style>
+      <td colspan="2">&nbsp;</td>
+      <td class="line">&nbsp;</td>
+      <td class="line">&nbsp;</td>
+      <td class="line">&nbsp;</td>
+    </tr>
+    <tr>
+    	<style type="text/css">
+	        #weight_ranges {position: relative;	}
+			.weight_ranges {text-align: left;}
+			#under_healthy, #healthy_over, #over_obese {position: absolute; top: 0; width: 140px;
+					text-align: center; margin-top: -3px; padding: 0; font-weight: bold;}
+	        #weight_ranges_label {padding-top:3px; text-align: right; font: bold 14px; color: #0a5282;}
+			#under_healthy { left: 70px;}
+    		#healthy_over { left: 211px;}
+   			#over_obese { left: 352px;}
+      	</style>
+      <td id="weight_ranges_label">Weight Range</td>
+      <td id="weight_ranges">
+        <div id="weight_ranges">
+          <div id="under_healthy">50.4 kg</div>
+          <div id="healthy_over">68.1 kg</div>
+          <div id="over_obese">81.7 kg</div>
+        </div>
+      </td>
+    </tr>
+  </tbody></table>
+{{pass}}
+</html>
